@@ -1,0 +1,3 @@
+Geometry = load("star3.mat")
+
+A = create_geometric_map(1,1)
