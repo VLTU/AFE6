@@ -1,4 +1,4 @@
-function geometric_map = create_geometric_map(fe_geometry, ref_data)
+function geom_map = create_geometric_map(fe_geometry, ref_data)
 %Write about i/o
 
 %map: (nq x 2 x m): (i,:,k)-th row: phi_{k}(xi^1_i,xi^2_i)
@@ -65,7 +65,7 @@ end
 
 
 
-geometric_map = struct('map',map,'map_derivatives',map_derivatives, ...
+geom_map = struct('map',map,'map_derivatives',map_derivatives, ...
     'imap_derivatives',imap_derivatives);
 
     
