@@ -67,3 +67,9 @@ for l = 1:m
         end 
     end
 end
+
+A(fe_space.boundary_bases,:) = [];
+A(:,fe_space.boundary_bases) = [];
+b(fe_space.boundary_bases) = [];
+
+end

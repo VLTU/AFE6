@@ -12,3 +12,15 @@ fe_space = fe_file.fe_space;
 
 [A, b] = assemble_fe_problem(fe_space, ref_data, ...
             geom_map, problem_B, problem_L);
+
+u = linsolve(A, b);
+one = ones(1,1);
+for i = fe_space.boundary_bases
+    if i == 1
+        u = cat(1,u, 0)
+    elseif i <= size(u)
+        u = [u(1:i - 1) 0 u(i: end)]
+    else 
+        u = cat(1, u, 0)
+    end
+end
