@@ -7,7 +7,7 @@ n_q_1 = nq_1;
 p = [2,2];
 
 
-geometry_file = load("star5.mat");
+geometry_file = load("star3.mat");
 geometry_file.p
 ref_data = create_ref_data(nq_1,p,'plot');''
 %geometry_file.fe_geometry.map_coefficients
@@ -33,14 +33,17 @@ for k=1:geometry_file.fe_geometry.m
  y = A.map(:,2,k).'
  size1d = sqrt(size(x,2))
 
- x = reshape(x,size1d,size1d)
- y = reshape(y,size1d,size1d)
- data  = reshape(data,size1d,size1d)
- figure(k)
- pcolor(x,y,data);
+ %x = reshape(x,size1d,size1d)
+ %y = reshape(y,size1d,size1d)
+ %data  = reshape(data,size1d,size1d)
+ %figure(k)
+ scatter(x,y,[],data,'filled');
+ colorbar
+ colormap jet
+ hold on 
 
- colorbar;
- shading interp
+ %colorbar;
+ %shading interp
   
  %ref_data.evaluation_points
  %A.map(:,:,k)
